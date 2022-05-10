@@ -4,6 +4,9 @@ dist
 # Dependencies
 node_modules
 
+# Environment
+.env
+
 # Yarn & Npm 
 yarn.lock
 yarn-error.log

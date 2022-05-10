@@ -7,6 +7,6 @@ import AuthRoute from './AuthRoute';
  * @param router Express router
  * @param prefix URL prefix
  */
-export const initRoutes = ({ application, options }: Server): void => {
-    application.use(`${options.prefix}/auth`, new AuthRoute().router);
+export const initRoutes = ({ application, config }: Server): void => {
+    application.use(`${config.prefix}/auth`, new AuthRoute().router);
 }

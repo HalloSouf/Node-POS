@@ -1,5 +1,6 @@
 import Express, { Application } from 'express';
 import { initRoutes } from './routes';
+import { IConfig } from '../types/global';
 
 /**
  * Server
@@ -7,10 +8,10 @@ import { initRoutes } from './routes';
 class Server {
 
     private _app: Application = Express();
-    public options: ServerOptions;
+    public config: ServerOptions;
 
     constructor(options: ServerOptions) {
-        this.options = options;
+        this.config = options;
         initRoutes(this);
     }
 
@@ -23,9 +24,9 @@ class Server {
 
 }
 
-export interface ServerOptions {
-    prefix: string;
-    port: number;
+export interface ServerOptions 
+    extends IConfig {
+        prefix: string;
 }
 
 export default Server;
