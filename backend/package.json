@@ -10,6 +10,9 @@
     "dev": "nodemon src/app.ts",
     "build": "tsc --watch"
   },
+  "prisma": {
+    "seed": "ts-node prisma/seeders/main.ts"
+  },
   "devDependencies": {
     "nodemon": "^2.0.16",
     "prisma": "^3.14.0",
@@ -18,8 +21,10 @@
   },
   "dependencies": {
     "@prisma/client": "^3.14.0",
+    "@types/bcrypt": "^5.0.0",
     "@types/express": "^4.17.13",
     "@types/node": "^17.0.31",
+    "bcrypt": "^5.0.1",
     "dotenv": "^16.0.0",
     "express": "^4.18.1",
     "moment": "^2.29.3"
