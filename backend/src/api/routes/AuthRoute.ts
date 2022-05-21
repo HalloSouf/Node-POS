@@ -1,3 +1,4 @@
+import { body } from 'express-validator';
 import Route from './Route';
 import AuthController from '../controllers/AuthController';
 
@@ -18,7 +19,10 @@ class AuthRoute extends Route {
      * Initialise routes
      */
     private init(): void {
-        this.router.post('/', this.controller.signin.bind(this.controller));
+        this.router.post('/signin', [
+            body('code').isLength({ min: 1 }),
+            body('password').isLength({ min: 1 })
+        ], this.controller.signin.bind(this.controller));
     }
 
 }

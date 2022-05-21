@@ -18,24 +18,27 @@ class Logger {
      * Info log
      * @param message Log message
      */
-    public static info(message: string): void {
-        console.info(`[${moment().format('DD/MM/YYYY HH:mm:ss')}] ${MAGENTA}Info${RESET} - ${message}`);
+    public static info(message: string, enable: boolean = true): void {
+        if (enable)
+            console.info(`[${moment().format('DD/MM/YYYY HH:mm:ss')}] ${MAGENTA}Info${RESET} - ${message}`);
     }
 
     /**
      * Ready log
      * @param message Log message
      */
-    public static ready(message: string): void {
-        console.info(`[${moment().format('DD/MM/YYYY HH:mm:ss')}] ${GREEN}Ready${RESET} - ${message}`)
+    public static ready(message: string, enable: boolean = true): void {
+        if (enable)
+            console.info(`[${moment().format('DD/MM/YYYY HH:mm:ss')}] ${GREEN}Ready${RESET} - ${message}`);
     }
 
     /**
      * Error log
      * @param message Log message
      */
-    public static error(message: string): void {
-        console.error(`[${moment().format('DD/MM/YYYY HH:mm:ss')}] ${RED}Error${RESET} - ${message}`);
+    public static error(message: string, enable: boolean = true): void {
+        if (enable)
+            console.error(`[${moment().format('DD/MM/YYYY HH:mm:ss')}] ${RED}Error${RESET} - ${message}`);
     }
 
 }

@@ -22,13 +22,13 @@ class UserSeeder extends Seeder {
                 {
                     firstname: 'Johan',
                     lastname: 'Verhaak',
-                    code: 49251,
+                    username: '49251',
                     password: this.hash('9856')
                 },
                 {
                     firstname: 'Joke',
                     lastname: 'Velden',
-                    code: 98746,
+                    username: '98746',
                     password: this.hash('9874')
                 }
             ];

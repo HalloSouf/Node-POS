@@ -14,7 +14,7 @@ model User {
   id          Int       @id @default(autoincrement())
   firstname   String    @db.VarChar(100)
   lastname    String    @db.VarChar(100)
-  code        Int       @db.Int
+  username    String    @db.VarChar(100)
   password    String    @db.VarChar(255)
   created_at  DateTime  @default(now())
   updated_at  DateTime  @updatedAt
