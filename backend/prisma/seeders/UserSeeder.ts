@@ -1,6 +1,7 @@
 import { PrismaClient, Prisma } from '@prisma/client';
 import { genSaltSync, hashSync } from 'bcrypt';
 import Seeder from './Seeder';
+import Snowflake from '../../src/utils/Snowflake';
 
 /**
  * UserSeeder
@@ -20,12 +21,14 @@ class UserSeeder extends Seeder {
         try {
             const users: Array<Prisma.UserCreateInput> = [
                 {
+                    id: Snowflake.generate(),
                     firstname: 'Johan',
                     lastname: 'Verhaak',
                     username: '49251',
                     password: this.hash('9856')
                 },
                 {
+                    id: Snowflake.generate(),
                     firstname: 'Joke',
                     lastname: 'Velden',
                     username: '98746',

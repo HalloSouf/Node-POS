@@ -11,7 +11,7 @@ datasource db {
 }
 
 model User {
-  id          Int       @id @default(autoincrement())
+  id          String    @id
   firstname   String    @db.VarChar(100)
   lastname    String    @db.VarChar(100)
   username    String    @db.VarChar(100)
