@@ -20,7 +20,7 @@ export interface IConfig {
 declare global {
     namespace Express {
         interface Request {
-            payload: JwtPayload | string;
+            payload: JwtPayload;
         }
     }
 }

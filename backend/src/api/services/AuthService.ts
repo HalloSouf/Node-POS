@@ -44,7 +44,7 @@ class AuthService {
      * Verify JWT token
      * @param token JWT token
      */
-    public verify(token: string): Promise<string | JwtPayload> {
+    public verify(token: string): Promise<JwtPayload> {
         return new Promise((resolve: any, reject: any) => {
             verify(token, readFileSync('./keys/rsa_jwt_public.pem', {
                 encoding: 'utf-8'

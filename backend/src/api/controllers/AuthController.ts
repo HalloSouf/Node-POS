@@ -43,8 +43,24 @@ class AuthController extends Controller {
         }
     }
 
+    /**
+     * Check if user is authenticated
+     * @param req Express request
+     * @param res Express response
+     * @param next Express next function
+     */
     public async authenticated(req: Request, res: Response, next: NextFunction): Promise<any> {
-
+        try {
+            const user = await this.users.find({ 
+                where: { id: req.payload.id }
+            });
+            
+            // @ts-ignore !! Alternative workaround. Passwords needs to be deselected while quering the user-data
+            delete user.password;
+            return res.json({ user });
+        } catch (e: any) {
+            this.Logger.error(e);
+        }
     }
 
 }
