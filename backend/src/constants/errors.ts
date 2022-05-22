@@ -14,6 +14,14 @@ const errors: {[k: string]: ErrorItem} = {
     INCORRECT_CREDENTIALS: {
         status: 403,
         message: 'Incorrect credentials where given for this user.'
+    },
+    NO_AUTH_HEADER: {
+        status: 401,
+        message: 'Where is your authentication-header?'
+    },
+    INVALID_TOKEN: {
+        status: 401,
+        message: 'For an authenticated request, you must specify a valid authentication token!'
     }
 }
 

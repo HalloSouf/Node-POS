@@ -43,6 +43,10 @@ class AuthController extends Controller {
         }
     }
 
+    public async authenticated(req: Request, res: Response, next: NextFunction): Promise<any> {
+
+    }
+
 }
 
 export default AuthController;
