@@ -15,9 +15,21 @@ const errors: {[k: string]: ErrorItem} = {
         status: 403,
         message: 'Incorrect credentials where given for this user.'
     },
-    NO_AUTH_HEADER: {
+    NO_AUTHENTICATION: {
         status: 401,
         message: 'Where is your authentication-header?'
+    },
+    NOT_AUTHENTICATED: {
+        status: 401,
+        message: 'I\'m sorry. But you are not authenticated for this resource...'
+    },
+    NO_REFRESH: {
+        status: 400,
+        message: 'You want to refresh a token without a refresh-token?'
+    },
+    INVALID_REFRESH: {
+        status: 400,
+        message: 'You have sent an incorrect or corrupted refresh-token, which the server can not accept.'
     },
     INVALID_TOKEN: {
         status: 401,

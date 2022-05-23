@@ -1,5 +1,5 @@
 import { readFileSync } from 'fs';
-import { sign, verify, JwtPayload, VerifyErrors } from 'jsonwebtoken';
+import { sign, verify, JwtPayload, VerifyErrors, SignOptions } from 'jsonwebtoken';
 import { hashSync, genSaltSync, compareSync } from 'bcrypt';
 import config from '../../constants/config';
 
@@ -29,14 +29,15 @@ class AuthService {
      * Assign JWT token
      * @param data Available data for JWT token
      */
-    public createToken(data: object | Buffer): string {
+    public createToken(data: object | Buffer, options?: SignOptions): string {
         return sign({ ...data }, readFileSync('./keys/rsa_jwt_private.pem', {
             encoding: 'utf-8'
         }), {
             audience: config.jwt.audience,
             algorithm: 'RS256',
             issuer: config.jwt.issuer,
-            expiresIn: config.jwt.expiresIn
+            expiresIn: config.jwt.expiresIn,
+            ...options
         });
     }
 

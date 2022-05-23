@@ -20,7 +20,16 @@ export interface IConfig {
 declare global {
     namespace Express {
         interface Request {
-            payload: JwtPayload;
+            tokens: {
+                authorization: {
+                    value?: string;
+                    payload?: JwtPayload;
+                },
+                refresh: {
+                    value?: string;
+                    payload?: JwtPayload;
+                }
+            }
         }
     }
 }

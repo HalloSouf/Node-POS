@@ -23,7 +23,8 @@ class AuthRoute extends Route {
             body('code').isLength({ min: 1 }),
             body('password').isLength({ min: 1 })
         ], this.controller.signin.bind(this.controller));
-        this.router.post('/', [this.authMiddleware.extract], this.controller.authenticated.bind(this.controller));
+        this.router.post('/refresh', [this.authMiddleware.extractRefresh, this.authMiddleware.verify], this.controller.refresh.bind(this.controller));
+        this.router.post('/', [this.authMiddleware.extractAuth, this.authMiddleware.verify], this.controller.authenticated.bind(this.controller));
     }
 
 }
